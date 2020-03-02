@@ -1,5 +1,8 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+
+  before_action :set_event, only: [:show]
+  before_action :set_current_user_event, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -14,7 +17,7 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    @event = Event.new
+    @event = current_user.events.build
   end
 
   # GET /events/1/edit
@@ -62,6 +65,10 @@ class EventsController < ApplicationController
   end
 
   private
+    def set_current_user_event
+      @event = current_user.event.find(params[:id])
+    end
+
     def set_event
       @event = Event.find(params[:id])
     end
