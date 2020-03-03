@@ -11,7 +11,7 @@ gem 'twitter-bootstrap-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
