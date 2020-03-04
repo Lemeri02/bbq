@@ -15,8 +15,14 @@
           </div>
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-top">
-              <%= link_to 'Изменить', edit_event_path(@event),
+              <%= link_to t('button.update'), edit_event_path(@event),
                 class: 'btn btn-primary' %>
+
+              <%= link_to t('button.delete'), event_path(@event),
+                          method: :delete,
+                          data: {confirm: t('confirm.delete',
+                                 resource: @event.class.model_name.human.downcase)},
+                          class: 'btn btn-danger' %>
             </div>
           <% end %>
         </div>
