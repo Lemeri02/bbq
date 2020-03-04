@@ -174,8 +174,6 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
-    russian (0.6.0)
-      i18n (>= 0.5.0)
     solargraph (0.38.5)
       backport (~> 1.1)
       benchmark
@@ -238,7 +236,6 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rubocop
-  russian
   solargraph
   sqlite3 (~> 1.4)
   twitter-bootstrap-rails
