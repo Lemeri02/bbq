@@ -1,18 +1,14 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except: [:show]
-  before_action :set_current_user, except: [:show]
-  # GET /users/1
-  # GET /users/1.json
+  before_action :authenticate_user!, except: %i[show]
+  before_action :set_current_user, except: %i[show]
+
   def show
     @user = User.find(params[:id])
   end
 
-  # GET /users/1/edit
   def edit
   end
 
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
       if @user.update(user_params)
@@ -26,13 +22,12 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_current_user
-      @user = current_user
-    end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:name, :email)
-    end
+  def set_current_user
+    @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
 end
