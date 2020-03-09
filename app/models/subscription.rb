@@ -7,7 +7,7 @@ class Subscription < ApplicationRecord
   validates :user_name, presence: true, unless: -> { user.present? }
   validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, unless: :user_present?
 
-  validate :user_email_already_exists?
+  validate :user_email_already_exists?, unless: :user_present?
   validates :user, uniqueness: { scope: :event_id }, if: :user_present?
   validates :user_email, uniqueness: { scope: :event_id }, unless: :user_present?
 
