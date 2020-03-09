@@ -5,10 +5,11 @@ class Subscription < ApplicationRecord
   validates :event, presence: true
 
   validates :user_name, presence: true, unless: -> { user.present? }
-  validates :user_email, presence: true, format: /\A[a-zA-Z0-9\-_.]+@[a-zA-Z0-9\-_.]+\z/, unless: -> { user.present? }
+  validates :user_email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }, unless: :user_present?
 
-  validates :user, uniqueness: { scope: :event_id }, if: -> { user.present? }
-  validates :user_email, uniqueness: { scope: :event_id }, unless: -> { user.present? }
+  validate :user_email_already_exists?
+  validates :user, uniqueness: { scope: :event_id }, if: :user_present?
+  validates :user_email, uniqueness: { scope: :event_id }, unless: :user_present?
 
   def user_name
     if user.present?
@@ -24,5 +25,13 @@ class Subscription < ApplicationRecord
     else
       super
     end
+  end
+
+  def user_email_already_exists?
+    errors.add(:user_email, I18n.t('activerecord.error.email')) if User.exists?(email: user_email)
+  end
+
+  def user_present?
+    user.present?
   end
 end
