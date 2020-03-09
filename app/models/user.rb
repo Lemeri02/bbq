@@ -11,8 +11,6 @@ class User < ApplicationRecord
 
   after_commit :link_subscriptions, on: :create
 
-  private
-
   def link_subscriptions
     Subscription.where(
       user_id: nil, user_email: self.email
