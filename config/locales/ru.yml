@@ -6,6 +6,7 @@ ru:
       user: 'Пользователь'
       event: 'Событие'
       photo: 'Фотография'
+      subscription: 'Подписка'
     error:
       email: 'уже существует'
 
