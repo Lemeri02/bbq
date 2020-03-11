@@ -14,6 +14,7 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'fog-aws'
 
 gem 'puma', '~> 4.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
