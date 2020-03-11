@@ -12,6 +12,8 @@ gem 'twitter-bootstrap-rails'
 
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'carrierwave'
+gem 'rmagick'
 
 gem 'puma', '~> 4.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
