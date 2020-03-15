@@ -1,11 +1,17 @@
-Новая подписка
+<%= t('.title') %>: <%= @event.title %>
 ----
 
-Имя: <%= @name %>
-Email: <%=  @email %>
+<%= t('.name') %>: <%= @name %>
+<%= t('.email') %>: <%=  @email %>
 
 ----------------------
 
-Событие: <%= @event.title %>
-Состоится: <%= l @event.datetime %>
-Организатор: <%= @event.user.name %>
+<%= t('.event') %>: <%= @event.title %>
+<% if @event.datetime > Time.now %>
+  <%= t('event_mailer.due_datetime') %>
+<% else %>
+  <%= t('event_mailer.exp_datetime') %>
+<% end %>
+<%= l(@event.datetime, format: :short) %>
+
+<%= t('.owner') %>: <%= @event.user.name %>
