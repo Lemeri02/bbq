@@ -1,11 +1,12 @@
-<h1><%= t('.title') %></h1>
+<h2><%= "#{t('.title')} #{@event.title}" %></h2>
+<hr/>
 <p><%= @comment.body %></p>
 <p><%= t('.author') %>: <strong><%= @comment.user_name %></strong></p>
 
 <hr/>
 
 <%= t('.event') %>
-<h3><%= @event.title %></h3>
+<h3><%= link_to @event.title, @event %></h3>
 
 <% if @event.datetime > Time.now %>
   <%= t('event_mailer.due_datetime') %>

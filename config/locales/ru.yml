@@ -100,7 +100,6 @@ ru:
       title: 'Новый комментарий к событию:'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
       owner: 'Организатор'
     subscription:
       title: 'Новая подписка к событию:'
@@ -108,7 +107,6 @@ ru:
       email: 'Email'
       author: 'Автор'
       event: 'Событие'
-      datetime: 'Состоится'
       owner: 'Организатор'
     photo:
       title: 'Новая фотография к событию:'
@@ -116,3 +114,4 @@ ru:
       author: 'Автор'
       owner: 'Организатор'
       url: 'Ссылка'
+      added: 'Добавлен %{datetime} пользователем %{author}'
