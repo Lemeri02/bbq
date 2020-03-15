@@ -1,11 +1,18 @@
-<%= t '.title' %>
+<%= t('.title') %>: <%= @event.title %>
 ----
 
 <%= @comment.body %>
 
-<%= t '.author' %>: <%= @comment.user_name %>
+<%= t('.author') %>: <%= @comment.user_name %>
 
 --------------------------------
-<%= t '.event' %>: <%= @event.title %>
-<%= t '.datetime' %>: <%= l @event.datetime %>
-<%= t '.owner' %>: <%= @event.user.name %>
+<%= t('.event') %>: <%= @event.title %>
+
+<% if @event.datetime > Time.now %>
+  <%= t('event_mailer.due_datetime') %>
+<% else %>
+  <%= t('event_mailer.exp_datetime') %>
+<% end %>
+<%= l(@event.datetime, format: :short) %>
+
+<%= t('.owner') %>: <%= @event.user.name %>
