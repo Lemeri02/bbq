@@ -69,7 +69,7 @@ ru:
     subscription:
       destroy_confirm: 'Вы уверены, что хотите удалить эту подписку?'
 
-  # Кнопки
+  # Кнопки во вьюхах
   button:
     create_event: 'Создать событие'
     update: 'Изменить'
@@ -92,18 +92,27 @@ ru:
     name: 'Шашлыки'
     company: 'Хороший программист'
 
+  # Переводы для шаблонов рассылки
   event_mailer:
+    due_datetime: 'Состоится'
+    exp_datetime: 'Состоялся'
     comment:
-      title: 'Новый комментарий'
+      title: 'Новый комментарий к событию:'
       author: 'Автор'
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
     subscription:
-      title: 'Новая подписка'
+      title: 'Новая подписка к событию:'
       name: 'Имя'
       email: 'Email'
       author: 'Автор'
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+    photo:
+      title: 'Новая фотография к событию:'
+      event: 'Событие'
+      author: 'Автор'
+      owner: 'Организатор'
+      url: 'Ссылка'
