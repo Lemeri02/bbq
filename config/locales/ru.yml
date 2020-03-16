@@ -76,15 +76,28 @@ ru:
     delete: 'Удалить'
     save: 'Сохранить'
     submit: 'Отправить'
-
+    log_in: 'Войти' #app/views/devise/sessions/new.html.erb
+    sign_up: 'Зарегистрироваться' # app/views/devise/registrations/new.html.erb
+    send_me_reset_password_instructions: 'Cбросить пароль' # app/views/devise/passwords/new.html.erb
+  # devise/shared/_links.html.erb
   link:
+    log_in: 'Войти'
+    sign_in: 'Зарегистрироваться'
+    forgot_your_password: 'Забыли пароль?'
+    didnt_receive_confirmation_instructions: 'Не получили инструкций по подтверждению?'
+    didnt_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'
     back: 'вернуться'
 
+
   header:
-    events: 'События'
+    events: 'События' #
     edit_events: 'Редактирование события'
+    log_in: 'Войти' #app/views/devise/sessions/new.html.erb
+    sign_up: 'Зарегистрироваться' # app/views/devise/registrations/new.html.erb
+    forgot_your_password: 'Забыли пароль?' #app/views/devise/passwords/new.html.erb
 
   or: или
+  characters_minimum: '(Минимум %{symbol} символов)'
 
 
   # Перевод названия приложения и компании-разработчика

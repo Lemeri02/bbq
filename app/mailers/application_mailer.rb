@@ -3,15 +3,15 @@ class ApplicationMailer < ActionMailer::Base
 
   layout 'mailer'
 
-  helper_method :time_locale_to
+  helper_method :due_time_to
 
   private
 
-  def time_locale_to(event)
-    if event.datetime.localtime > Time.now
-      "#{t('event_mailer.due_datetime')}: #{l(@event.datetime.localtime, format: :short)}"
+  def due_time_to(event)
+    if event.datetime > Time.now
+      "#{t('event_mailer.due_datetime')}: #{l(@event.datetime, format: :short)}"
     else
-      "#{t('event_mailer.exp_datetime')}: #{l(@event.datetime.localtime, format: :short)}"
+      "#{t('event_mailer.exp_datetime')}: #{l(@event.datetime, format: :short)}"
     end
   end
 end
