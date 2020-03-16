@@ -8,5 +8,5 @@
 <%= t('.event') %>
 <h3><%= link_to @event.title, @event %></h3>
 
-<p><%= time_locale_to(@event) %></p>
+<p><%= due_time_to(@event) %></p>
 <p><%= t('.owner') %>: <b><%= link_to @event.user.name, @event.user %></b></p>

@@ -8,5 +8,5 @@
 --------------------------------
 <%= t('.event') %>: <%= @event.title %>
 
-<%= time_locale_to(@event) %>
+<%= due_time_to(@event) %>
 <%= t('.owner') %>: <%= @event.user.name %>
