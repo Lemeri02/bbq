@@ -8,11 +8,5 @@
 --------------------------------
 <%= t('.event') %>: <%= @event.title %>
 
-<% if @event.datetime > Time.now %>
-  <%= t('event_mailer.due_datetime') %>
-<% else %>
-  <%= t('event_mailer.exp_datetime') %>
-<% end %>
-<%= l(@event.datetime, format: :short) %>
-
+<%= time_locale_to(@event) %>
 <%= t('.owner') %>: <%= @event.user.name %>
