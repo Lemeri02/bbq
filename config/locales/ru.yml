@@ -128,3 +128,7 @@ ru:
       owner: 'Организатор'
       url: 'Ссылка'
       added: 'Добавлен %{datetime} пользователем %{author}'
+
+  devise:
+    mailer:
+      reset_password
