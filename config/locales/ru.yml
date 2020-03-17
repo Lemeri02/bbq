@@ -31,6 +31,10 @@ ru:
         user_email: 'Эл. почта'
       photo:
         photo: 'Фотография'
+  # Аттрибуты
+  password:
+    new_password: 'Новый пароль' # app/views/devise/passwords/edit.html.erb
+    confirm_new_password: 'Повторите новый пароль' # app/views/devise/passwords/edit.html.erb
 
   # Перевод сообщений, которые отправляет контроллер
   controllers:
@@ -62,6 +66,7 @@ ru:
   # Подтверждения
   confirm:
     delete: 'Вы точно хотите удалить %{resource}'
+    delete_user: 'Вы точно хотите удалить свой профиль?' # devise/registrations/edit.html.erb
   comments:
     comment:
       destroy_confirm: 'Вы уверены, что хотите удалить этот комментарий?'
@@ -79,13 +84,16 @@ ru:
     log_in: 'Войти' #app/views/devise/sessions/new.html.erb
     sign_up: 'Зарегистрироваться' # app/views/devise/registrations/new.html.erb
     send_me_reset_password_instructions: 'Cбросить пароль' # app/views/devise/passwords/new.html.erb
-  # devise/shared/_links.html.erb
+    change_my_password: 'Сменить пароль на новый' #app/views/devise/passwords/edit.html.erb
+    subscribe: 'Подписаться' # app/views/subscriptions/_form.html.erb
+
   link:
-    log_in: 'Войти'
-    sign_in: 'Зарегистрироваться'
-    forgot_your_password: 'Забыли пароль?'
-    didnt_receive_confirmation_instructions: 'Не получили инструкций по подтверждению?'
-    didnt_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'
+    log_in: 'Войти'   # devise/shared/_links.html.erb
+    sign_in: 'Зарегистрироваться'   # devise/shared/_links.html.erb
+    forgot_your_password: 'Забыли пароль?'   # devise/shared/_links.html.erb
+    didnt_receive_confirmation_instructions: 'Не получили инструкций по подтверждению?'   # devise/shared/_links.html.erb
+    didnt_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'   # devise/shared/_links.html.erb
+    change_password: 'Сменить пароль' #app/views/devise/passwords/edit.html.erb
     back: 'вернуться'
 
 
@@ -95,9 +103,18 @@ ru:
     log_in: 'Войти' #app/views/devise/sessions/new.html.erb
     sign_up: 'Зарегистрироваться' # app/views/devise/registrations/new.html.erb
     forgot_your_password: 'Забыли пароль?' #app/views/devise/passwords/new.html.erb
+    change_your_password: 'Сменить пароль' #app/views/devise/passwords/edit.html.erb
+    edit_user: 'Редактировать пользователя'
 
   or: или
   characters_minimum: '(Минимум %{symbol} символов)'
+  leave_blank_field: 'Оставьте пустым, если не хотите менять' # app/views/devise/registrations/edit.html.erb
+  need_current_password: 'Нам нужен ваш текущий пароль, чтобы подтвердить ваши изменения' # app/views/devise/registrations/edit.html.erb
+  cancel_account: 'Удалить аккаунт'
+  host: 'Зовет' # app/views/events/show.html.erb
+  participants: 'Пойдут' # app/views/events/show.html.erb
+  i_will_go: 'Я пойду' # app/views/events/show.html.erb
+
 
 
   # Перевод названия приложения и компании-разработчика

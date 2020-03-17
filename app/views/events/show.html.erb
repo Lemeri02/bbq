@@ -13,15 +13,16 @@
             <p><%= @event.description %></p>
           </div>
           <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
+            <div class="buffer-top buffer-bottom">
+
               <%= link_to t('button.update'), edit_event_path(@event),
-                class: 'btn btn-primary' %>
+                class: 'btn btn-primary btn-custom-size' %>
 
               <%= link_to t('button.delete'), event_path(@event),
                           method: :delete,
                           data: {confirm: t('confirm.delete',
                                  resource: @event.class.model_name.human.downcase)},
-                          class: 'btn btn-danger' %>
+                          class: 'btn btn-danger btn-custom-size' %>
             </div>
           <% end %>
         </div>
@@ -49,12 +50,12 @@
     </div>
     <div class="col-md-4">
       <div class="event-owner">
-        <h4>Зовет:</h4>
+        <h4><%= t('host') %></h4>
           <p><%= render partial: 'users/user', object: @event.user %></p>
       </div>
       <% if @event.subscriptions.exists? %>
         <div class="event-subscriptions">
-          <h4>Пойдут:</h4>
+          <h4><%= t('participants') %>:</h4>
           <div>
             <p>
               <%= render partial: 'subscriptions/subscription',
@@ -63,9 +64,9 @@
           </div>
         </div>
       <% end %>
-      <% unless @event.user == current_user %>
+      <% unless (@event.subscriptions.any?{ |s| s.user == current_user }) && !(@event.user == current_user) %>
         <div class="event-subscription-form">
-          <h4>Я пойду:</h4>
+          <h4><%= t('i_will_go') %></h4>
           <div>
             <%= render partial: 'subscriptions/form', locals: {
               subscription: @new_subscription || @event.subscriptions.build
