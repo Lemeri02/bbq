@@ -114,6 +114,8 @@ ru:
   host: 'Зовет' # app/views/events/show.html.erb
   participants: 'Пойдут' # app/views/events/show.html.erb
   i_will_go: 'Я пойду' # app/views/events/show.html.erb
+  no_subscribers_for_users: 'У этого события пока нет подписчиков, будь первым!' # app/views/events/show.html.erb
+  no_subscribers_for_owner: 'У этого события пока нет подписчиков, пригласи друзей!' # app/views/events/show.html.erb
 
 
 

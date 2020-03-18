@@ -2,7 +2,7 @@
   <% if subscription.user.present? %>
     <%= render partial: 'users/user', object: subscription.user %>
   <% else %>
-    <em><%= subscription.user_name %></em>
+    <span class="text-success"><%= fa_icon('user') %> <em><%= subscription.user_name %></em></span>
   <% end %>
   <% if current_user_can_edit?(subscription) %>
     <%= link_to(
