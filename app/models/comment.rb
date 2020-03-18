@@ -6,6 +6,8 @@ class Comment < ApplicationRecord
 
   validates :user_name, presence: true, unless: -> { user.present? }
 
+  scope :newest_first, -> { order(created_at: :desc) }
+
   def user_name
     if user.present?
       user.name
