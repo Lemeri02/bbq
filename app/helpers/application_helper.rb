@@ -38,4 +38,8 @@ module ApplicationHelper
   def fa_icon(icon_class)
     content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
+
+  def current_user_subscribed?
+    @event.subscriptions.any? { |s| s.user == current_user } unless current_user.nil?
+  end
 end
