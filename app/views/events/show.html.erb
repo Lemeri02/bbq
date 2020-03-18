@@ -44,7 +44,7 @@
         locals: {comment: @new_comment || @event.comments.build} %>
         <div class="buffer-both">
           <%= render partial: 'comments/comment',
-            collection: @event.comments.except(@new_comment) %>
+            collection: @event.comments.except(@new_comment).newest_first %>
         </div>
       </div>
     </div>
