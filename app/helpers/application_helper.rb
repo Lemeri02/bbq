@@ -40,6 +40,6 @@ module ApplicationHelper
   end
 
   def current_user_subscribed?
-    @event.subscriptions.any? { |s| s.user == current_user } unless current_user.nil?
+    @event.subscriptions.any? { |s| s.user == current_user } if current_user.present?
   end
 end
