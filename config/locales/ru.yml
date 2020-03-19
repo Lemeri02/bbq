@@ -89,6 +89,7 @@ ru:
     send_me_reset_password_instructions: 'Cбросить пароль' # app/views/devise/passwords/new.html.erb
     change_my_password: 'Сменить пароль на новый' #app/views/devise/passwords/edit.html.erb
     subscribe: 'Подписаться' # app/views/subscriptions/_form.html.erb
+    upload: 'Загрузить' # app/views/photos/_form.html.erb
 
   link:
     log_in: 'Войти'   # devise/shared/_links.html.erb
@@ -99,7 +100,9 @@ ru:
     change_password: 'Сменить пароль' #app/views/devise/passwords/edit.html.erb
     back: 'вернуться'
     home: 'На главную'
-
+    profile: 'Профиль'
+    log_out: 'Выйти'
+    edit_profile: 'Редактировать профиль' # app/views/users/show.html.erb
 
   header:
     events: 'События' #
@@ -110,6 +113,8 @@ ru:
     change_your_password: 'Сменить пароль' #app/views/devise/passwords/edit.html.erb
     edit_user: 'Редактировать пользователя'
     access_with_pincode: 'Доступ только по пин-коду' # app/views/events/password_form.html.erb
+    new_event: 'Новое событие'
+    edit_profile: 'Редактирование профиля' # app/views/users/edit.html.erb
 
   or: или
   characters_minimum: '(Минимум %{symbol} символов)'
@@ -121,8 +126,9 @@ ru:
   i_will_go: 'Я пойду' # app/views/events/show.html.erb
   no_subscribers_for_users: 'У этого события пока нет подписчиков, будь первым!' # app/views/events/show.html.erb
   no_subscribers_for_owner: 'У этого события пока нет подписчиков, пригласи друзей!' # app/views/events/show.html.erb
-
-
+  add: 'Добавил' # app/views/photos/_photo.html.erb
+  added_event: 'Организовал' # app/views/users/show.html.erb
+  user_has_not_added_event: 'Пользователь пока не организовал ни одного события' # app/views/users/show.html.erb
 
   # Перевод названия приложения и компании-разработчика
   app:
