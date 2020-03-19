@@ -23,6 +23,7 @@ ru:
         address: 'Место проведения'
         datetime: 'Дата и время'
         description: 'Описание'
+        pincode: 'Пин-код доступа'
       comment:
         body: 'Комментарий'
         user_name: 'Имя пользователя'
@@ -32,6 +33,7 @@ ru:
       photo:
         photo: 'Фотография'
   # Аттрибуты
+  pincode: 'Пин-код доступа' # app/views/events/password_form.html.erb
   password:
     new_password: 'Новый пароль' # app/views/devise/passwords/edit.html.erb
     confirm_new_password: 'Повторите новый пароль' # app/views/devise/passwords/edit.html.erb
@@ -42,6 +44,7 @@ ru:
       created: 'Вы создали новое мероприятие'
       updated: 'Вы обновили мероприятие'
       destroyed: 'Вы удалили мероприятие :('
+      wrong_pincode: 'Неверный пин-код'
     users:
       updated: 'Вы обновили свой профиль'
     comments:
@@ -95,6 +98,7 @@ ru:
     didnt_receive_unlock_instructions: 'Не получили инструкции по разблокировке?'   # devise/shared/_links.html.erb
     change_password: 'Сменить пароль' #app/views/devise/passwords/edit.html.erb
     back: 'вернуться'
+    home: 'На главную'
 
 
   header:
@@ -105,6 +109,7 @@ ru:
     forgot_your_password: 'Забыли пароль?' #app/views/devise/passwords/new.html.erb
     change_your_password: 'Сменить пароль' #app/views/devise/passwords/edit.html.erb
     edit_user: 'Редактировать пользователя'
+    access_with_pincode: 'Доступ только по пин-коду' # app/views/events/password_form.html.erb
 
   or: или
   characters_minimum: '(Минимум %{symbol} символов)'
