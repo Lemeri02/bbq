@@ -18,7 +18,7 @@ gem 'fog-aws'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
