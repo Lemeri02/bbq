@@ -1,10 +1,12 @@
 <div class="event">
   <div class="event-info row">
     <div class="col-md-12">
+
       <%= content_tag 'div', '', class: 'event-background',
         style: "background-image: url(#{event_photo(@event)})" %>
       <div class="event-info-inner row">
-        <div class="col-md-6">
+
+        <div class="col-md-4">
           <div class="event-description">
             <h1><%= @event.title %></h1>
             <h3><%= I18n.l(@event.datetime, format: :short) %></h3>
@@ -12,6 +14,7 @@
                 "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
             <p><%= @event.description %></p>
           </div>
+
           <% if current_user_can_edit?(@event) %>
             <div class="buffer-top buffer-bottom">
 
@@ -21,11 +24,15 @@
               <%= link_to t('button.delete'), event_path(@event),
                           method: :delete,
                           data: {confirm: t('confirm.delete',
-                                 resource: @event.class.model_name.human.downcase)},
+                                resource: @event.class.model_name.human.downcase)},
                           class: 'btn btn-danger btn-custom-size' %>
             </div>
           <% end %>
         </div>
+
+        <div class="event-map col-md-8" id="map" data-address="<%= @event.address %>">
+        </div>
+
       </div>
     </div>
   </div>
@@ -50,7 +57,6 @@
         </div>
       </div>
     </div>
-
     <div class="col-md-4">
       <div class="event-owner">
         <h4><%= t('host') %></h4>
