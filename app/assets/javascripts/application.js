@@ -7,9 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require map
 //= require moment
 //= require bootstrap-datetimepicker
 //= require moment/ru
-//= require datepicker
 //= require_tree .
