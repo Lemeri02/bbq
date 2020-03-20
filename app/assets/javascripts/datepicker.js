@@ -9,6 +9,8 @@ $(function () {
           next: "fa fa-arrow-right",
           previous: "fa fa-arrow-left"
       },
-      locale: 'ru'
+      locale: 'ru',
+      inline: true,
+      sideBySide: true
   });
 });
