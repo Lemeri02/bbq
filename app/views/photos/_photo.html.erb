@@ -1,5 +1,5 @@
 <div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
+  <%= link_to image_tag(photo.photo.thumb.url, class: 'img-thumbnail'), photo.photo.url, data: {lightbox: 'image1', title: "#{t('add')}: #{ link_to photo.user.name, photo.user }"} %>
 
   <%= t('add') %> <%= render partial: 'users/user', object: photo.user %>
 </div>
