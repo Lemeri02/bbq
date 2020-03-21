@@ -7,9 +7,10 @@ class Event < ApplicationRecord
   has_many :photos, dependent: :destroy
 
   validates :user, presence: true
-  validates :title, presence: true, length: {maximum: 255}
+  validates :title, presence: true, length: { maximum: 50 }
   validates :address, presence: true
   validates :datetime, presence: true
+  validates :description, length: { maximum: 140 }
 
   def visitors
     (subscribers + [user]).uniq
