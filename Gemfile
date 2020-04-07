@@ -12,6 +12,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'dotenv-rails' # работает с переменными окружения
 gem 'carrierwave'
 gem 'rmagick'
 gem 'fog-aws'
