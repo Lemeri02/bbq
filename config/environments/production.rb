@@ -109,7 +109,7 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
-  config.action_mailer.default_url_options = {host: '5.180.138.218'}
+  config.action_mailer.default_url_options = { host: 'kabab.fun', protocol: 'https' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
@@ -120,7 +120,7 @@ Rails.application.configure do
     authentication: :plain,
     user_name: 'apikey',
     password: ENV['SG_KEY'],
-    domain: '5.180.138.218',
+    domain: 'kabab.fun',
     enable_starttls_auto: true
   }
 end
