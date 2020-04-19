@@ -110,17 +110,8 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.action_mailer.default_url_options = { host: 'kabab.fun', protocol: 'https' }
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
-
-    ActionMailer::Base.smtp_settings = {
-    address: 'smtp.sendgrid.net',
-    port: 587,
-    authentication: :plain,
-    user_name: 'apikey',
-    password: ENV['SG_KEY'],
-    domain: 'kabab.fun',
-    enable_starttls_auto: true
-  }
+  config.action_mailer.delivery_method = :sendmail
+  config.action_mailer.default_options = { from: 'hi@kabab.fun' }
 end
