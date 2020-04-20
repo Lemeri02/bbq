@@ -32,6 +32,12 @@ group :production do
 end
 
 group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+
   gem 'sqlite3', '~> 1.4'
   gem 'listen'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
