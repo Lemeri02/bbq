@@ -18,6 +18,7 @@ gem 'rmagick'
 gem 'fog-aws'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem 'pundit'
 
 gem 'puma', '~> 4.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -43,4 +44,5 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'solargraph'
   gem 'rubocop'
+  gem 'rspec-rails'
 end
