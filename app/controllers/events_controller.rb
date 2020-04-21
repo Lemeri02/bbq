@@ -1,16 +1,17 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-
-  before_action :set_event, only: %i[show]
-  before_action :set_current_user_event, only: %i[edit update destroy]
-
+  before_action :set_event, except: %i[index new create]
   before_action :password_guard!, only: %i[show]
+
+  after_action :verify_authorized, only: %i[show edit update destroy]
 
   def index
     @events = Event.all
   end
 
   def show
+    authorize @event
+
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
@@ -18,13 +19,18 @@ class EventsController < ApplicationController
 
   def new
     @event = current_user.events.build
+
+    authorize @event
   end
 
   def edit
+    authorize @event
   end
 
   def create
     @event = current_user.events.build(event_params)
+
+    authorize @event
 
     respond_to do |format|
       if @event.save
@@ -38,30 +44,27 @@ class EventsController < ApplicationController
   end
 
   def update
+    authorize @event
+
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: I18n.t('controllers.events.updated') }
-        format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
+    authorize @event
+
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: I18n.t('controllers.events.destroyed') }
-      format.json { head :no_content }
     end
   end
 
   private
-
-  def set_current_user_event
-    @event = current_user.events.find(params[:id])
-  end
 
   def set_event
     @event = Event.find(params[:id])
