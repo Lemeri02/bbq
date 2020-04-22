@@ -27,6 +27,7 @@ gem 'webpacker', '~> 4.0'
 gem 'jbuilder', '~> 2.7'
 
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'resque'
 
 group :production do
   gem 'pg'
@@ -38,6 +39,7 @@ group :development, :test do
   gem 'capistrano-passenger'
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
+  gem 'capistrano-resque', require: false
 
   gem 'factory_bot_rails'
   gem 'sqlite3', '~> 1.4'
@@ -46,4 +48,5 @@ group :development, :test do
   gem 'solargraph'
   gem 'rubocop'
   gem 'rspec-rails'
+  gem 'letter_opener'
 end
