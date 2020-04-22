@@ -39,6 +39,8 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
 
+  gem 'factory_bot_rails'
+  gem 'rspec-rails'
   gem 'sqlite3', '~> 1.4'
   gem 'listen'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

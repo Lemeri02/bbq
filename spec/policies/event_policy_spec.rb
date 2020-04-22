@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe EventPolicy, type: :policy do
-  let(:event_owner) { User.create }
-  let(:some_event) { Event.create(user: event_owner) }
-  let(:authenticated_user) { User.create }
+  let(:event_owner) { FactoryBot.create(:user) }
+  let(:some_event) { FactoryBot.create(:event, user: event_owner) }
+  let(:authenticated_user) { FactoryBot.create(:user) }
 
   subject { EventPolicy }
 
