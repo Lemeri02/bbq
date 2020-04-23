@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:facebook]
+         :omniauthable, omniauth_providers: %i[facebook vkontakte]
 
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -26,23 +26,35 @@ class User < ApplicationRecord
   end
 
   def self.find_for_facebook_oauth(access_token)
-    # Достаём email из токена
     email = access_token.info.email
     user = where(email: email).first
     name = access_token.info.name
 
-    # Возвращаем, если нашёлся
     return user if user.present?
 
-    # Если не нашёлся, достаём провайдера, айдишник и урл
     provider = access_token.provider
     id = access_token.extra.raw_info.id
     url = "https://facebook.com/#{id}"
 
-    # Теперь ищем в базе запись по провайдеру и урлу
-    # Если есть, то вернётся, если нет, то будет создана новая
     where(url: url, provider: provider).first_or_create! do |user|
-      # Если создаём новую запись, прописываем email и пароль
+      user.name = name
+      user.email = email
+      user.password = Devise.friendly_token.first(16)
+    end
+  end
+
+  def self.find_for_vkontakte_oauth(access_token)
+    email = access_token.info.email || "email_#{rand(1000)}@example.org"
+    user = where(email: email).first
+    name = access_token.info.name
+
+    return user if user.present?
+
+    provider = access_token.provider
+    id = access_token.extra.raw_info.id
+    url = "https://vk.com/#{id}"
+
+    where(url: url, provider: provider).first_or_create! do |user|
       user.name = name
       user.email = email
       user.password = Devise.friendly_token.first(16)
