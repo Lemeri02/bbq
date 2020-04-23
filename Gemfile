@@ -21,6 +21,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'pundit'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
 
 gem 'puma', '~> 4.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
