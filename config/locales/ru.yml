@@ -103,7 +103,7 @@ ru:
     profile: 'Профиль'
     log_out: 'Выйти'
     edit_profile: 'Редактировать профиль' # app/views/users/show.html.erb
-    sign_in_with: "Зарегистрироваться с помощью %{kind}" # app/views/devise/shared/_links.html.erb
+    sign_in_with: "Войти через %{kind}" # app/views/devise/shared/_links.html.erb
 
   header:
     events: 'События' #
