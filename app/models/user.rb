@@ -52,11 +52,11 @@ class User < ApplicationRecord
 
     provider = access_token.provider
     id = access_token.extra.raw_info.id
-    url = "https://vk.com/#{id}"
+    url = "https://vk.com/id#{id}"
 
     where(url: url, provider: provider).first_or_create! do |user|
       user.name = name
-      user.email = email
+      user.email = email || "#{id}@#{provider}"
       user.password = Devise.friendly_token.first(16)
     end
   end
