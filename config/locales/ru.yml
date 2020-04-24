@@ -47,6 +47,7 @@ ru:
       wrong_pincode: 'Неверный пин-код'
     users:
       updated: 'Вы обновили свой профиль'
+      email_is_not_valid: 'Рекомендуем в профиле указать валидный Email для получения уведомлений и восстановления пароля' # app/controllers/users/omniauth_callbacks_controller.rb
     comments:
       created: 'Ваш комментарий добавлен'
       destroyed: 'Комментарий удален'

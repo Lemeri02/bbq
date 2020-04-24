@@ -23,16 +23,26 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_vkontakte_oauth(request.env['omniauth.auth'])
 
     if @user.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'Вконтакте')
+      notification(@user)
       sign_in_and_redirect @user, event: :authentication
     else
       flash[:error] = I18n.t(
         'devise.omniauth_callbacks.failure',
-        kind: 'Вконтакте',
+        kind: 'Vkontakte',
         reason: 'authentication error'
       )
 
       redirect_to root_path
+    end
+  end
+
+  private
+
+  def notification(user)
+    if user.email.split('@').include?('vkontakte')
+      flash[:alert] = I18n.t('controllers.users.email_is_not_valid')
+    else
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'Vkontakte')
     end
   end
 end
