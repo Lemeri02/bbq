@@ -1,13 +1,9 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    # Дёргаем метод модели, который найдёт пользователя
     @user = User.find_for_facebook_oauth(request.env['omniauth.auth'])
 
-    # Если юзер есть, то логиним и редиректим на его страницу
     if @user.persisted?
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'Facebook')
-      sign_in_and_redirect @user, event: :authentication
-    # Если неудачно, то выдаём ошибку и редиректим на главную
+      redirect_and_notify(@user)
     else
       flash[:error] = I18n.t(
         'devise.omniauth_callbacks.failure',
@@ -23,8 +19,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @user = User.find_for_vkontakte_oauth(request.env['omniauth.auth'])
 
     if @user.persisted?
-      notification(@user)
-      sign_in_and_redirect @user, event: :authentication
+      redirect_and_notify(@user)
     else
       flash[:error] = I18n.t(
         'devise.omniauth_callbacks.failure',
@@ -38,11 +33,16 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   private
 
-  def notification(user)
-    if user.email.split('@').include?('vkontakte')
+  def redirect_and_notify(user)
+    if user.email.split('@').include?('vkontakte' || 'facebook')
       flash[:alert] = I18n.t('controllers.users.email_is_not_valid')
+
+      sign_in(:user, user)
+      redirect_to edit_user_path(user)
     else
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: 'Vkontakte')
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: "#{user.provider.capitalize}")
+
+      sign_in_and_redirect @user, event: :authentication
     end
   end
 end
