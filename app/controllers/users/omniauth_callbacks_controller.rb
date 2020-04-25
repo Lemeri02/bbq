@@ -40,7 +40,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       sign_in(:user, user)
       redirect_to edit_user_path(user)
     else
-      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: "#{user.provider.capitalize}")
+      flash[:notice] = I18n.t('devise.omniauth_callbacks.success', kind: "#{user.provider&.capitalize}")
 
       sign_in_and_redirect @user, event: :authentication
     end
