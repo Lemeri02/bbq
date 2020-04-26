@@ -269,7 +269,7 @@ Devise.setup do |config|
     scope: 'email', image_size: 'large', secure_image_url: true if Rails.env.production?
 
   config.omniauth :vkontakte, Rails.application.credentials.production[:omniauth_vk_id],
-    Rails.application.credentials.production[:omniauth_vk_secret], scope: 'email'
+    Rails.application.credentials.production[:omniauth_vk_secret], scope: 'email', image_size: 'original'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
