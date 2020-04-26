@@ -261,10 +261,12 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, Rails.application.credentials.development[:omniauth_facebook_id],
-    Rails.application.credentials.development[:omniauth_facebook_secret] if Rails.env.development?
+    Rails.application.credentials.development[:omniauth_facebook_secret],
+    scope: 'email', image_size: 'large', secure_image_url: true if Rails.env.development?
 
   config.omniauth :facebook, Rails.application.credentials.production[:omniauth_facebook_id],
-    Rails.application.credentials.production[:omniauth_facebook_secret] if Rails.env.production?
+    Rails.application.credentials.production[:omniauth_facebook_secret],
+    scope: 'email', image_size: 'large', secure_image_url: true if Rails.env.production?
 
   config.omniauth :vkontakte, Rails.application.credentials.production[:omniauth_vk_id],
     Rails.application.credentials.production[:omniauth_vk_secret], scope: 'email'
