@@ -1,24 +1,53 @@
-# README
+# Приложение для организации встреч - BBQ kabab.fun
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Приложение для организации публичных и приватных(пинкод) встреч,
 
-Things you may want to cover:
 
-* Ruby version
+Можно добавлять фото к событию, получать оповещения на почту, комментировать встречу,
+есть возможность подписаться на встречу, как анонимно так и будучу авторизованным юзером.
+Карта яндекса удобно выводит место будущей встречи.
 
-* System dependencies
+### Демо версия
 
-* Configuration
+Демо версия доступна по адресу
+* [kabab.fun](https://kabab.fun)
 
-* Database creation
+## Установка
+```
+bundle install
+rails db:migrate
+```
 
-* Database initialization
+## Запуск
+Выполните ```rails s```
 
-* How to run the test suite
+## Настройка
+Для правильной работы почтовых оповещений в `production` среде нужно задать
+в ```config/environments/production.rb``` данные хоста и почтового ящика:
+```
+  config.action_mailer.default_url_options = { host: 'example.org', protocol: 'https' }
 
-* Services (job queues, cache servers, search engines, etc.)
+  config.action_mailer.default_options = { from: 'your_email@example.org' }
+```
+в среде `production` используется Postfix (см. [настройку здесь](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-18-04))
 
-* Deployment instructions
 
-* ...
+
+Для загрузки изображений необходимо прописать переменные окружения AMAZON S3 в ```carrierwave.rb```
+
+```
+    aws_access_key_id:     ENV['S3_ACCESS_KEY']
+    aws_secret_access_key: ENV['S3_SECRET_KEY']
+    config.fog_directory = ENV['S3_BUCKET_NAME']
+```
+
+На сервере, в корне приложения необходимо создать файл `.env` и прописать туда все переменные окружения, необходимые для работы приложения.
+## Деплой
+Используйте `capistrano` [см. документацию](https://capistranorb.com/documentation/getting-started/configuration/)
+```
+cap production deploy
+```
+
+## Автор
+
+* **LEM** - *Учебный проект* - [Lemeri](https://github.com/Lemeri02)
