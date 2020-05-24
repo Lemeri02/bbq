@@ -18,7 +18,7 @@
 $ bundle install --without production
 ```
 
-Надо прописать в credentials.yml.enc данные полученные с developers.facebook.com и vk.com/dev
+Надо прописать в config/credentials.yml.enc данные полученные с `developers.facebook.com` и `vk.com/dev`
 
 Для этого набираем команду в терминале:
 
@@ -27,7 +27,7 @@ $ EDITOR=nano rails credentials:edit
 ```
 
 
-credentials.yml.enc
+config/credentials.yml.enc
 ```
 development:
   omniauth_facebook_id: <your apps id from facebook>
@@ -66,8 +66,9 @@ production:
   password: <your password>
 ```
 
+Далее запускаем миграции
 ```
-rails db:migrate
+$ rails db:migrate
 ```
 
 ## Запуск
