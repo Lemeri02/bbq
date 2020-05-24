@@ -13,8 +13,60 @@
 * [kabab.fun](https://kabab.fun)
 
 ## Установка
+Запускаем команду
 ```
-bundle install
+$ bundle install --without production
+```
+
+Надо прописать в credentials.yml.enc данные полученные с developers.facebook.com и vk.com/dev
+
+Для этого набираем команду в терминале:
+
+```
+$ EDITOR=nano rails credentials:edit
+```
+
+
+credentials.yml.enc
+```
+development:
+  omniauth_facebook_id: <your apps id from facebook>
+  omniauth_facebook_secret: <your apps secret key from facebook>
+
+production:
+  omniauth_facebook_id: <your apps id from facebook>
+  omniauth_facebook_secret: <your secret key from facebook>
+  omniauth_vk_id: <your id from vk>
+  omniauth_vk_secret: <your secret key from vk>
+
+```
+
+Необходимо также создать файл config/database.yml
+```
+default: &default
+  adapter: sqlite3
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: db/development.sqlite3
+
+test:
+  <<: *default
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  database: <database>
+  user: <user>
+  password: <your password>
+```
+
+```
 rails db:migrate
 ```
 
@@ -42,6 +94,13 @@ rails db:migrate
 ```
 
 На сервере, в корне приложения необходимо создать файл `.env` и прописать туда все переменные окружения, необходимые для работы приложения.
+
+```
+S3_ACCESS_KEY=YOUR_KEY
+S3_BUCKET_NAME=backetname
+S3_SECRET_KEY=YOUR_SECRET_KEY
+```
+
 ## Деплой
 Используйте `capistrano` [см. документацию](https://capistranorb.com/documentation/getting-started/configuration/)
 ```
