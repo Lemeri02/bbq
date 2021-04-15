@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'hi@kabab.fun'
+  default from: 'hi@bbqking.space'
 
   layout 'mailer'
 
