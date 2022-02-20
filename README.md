@@ -10,7 +10,7 @@
 ### Демо версия
 
 Демо версия доступна по адресу
-* [kabab.fun](https://kabab.fun)
+* [bbqking.space](https://bbqking.space)
 
 ## Установка
 Запускаем команду
